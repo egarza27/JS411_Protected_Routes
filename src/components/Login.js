@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { TextField, Button, Container } from "@mui/material";
 import cookie from "cookie";
 
@@ -25,9 +25,10 @@ const Login = () => {
     e.preventDefault();
     let cookies = {};
     document.cookie = cookie.serialize("loggedIn", "true", {
-      maxAge: 60 * 1000,
+      maxAge: 60 * 1,
     });
-    document.cookie = cookie.serialize("loggedIn", null, { maxAge: 0 });
+    navigate("/");
+    // document.cookie = cookie.serialize("loggedIn", null, { maxAge: 0 });
   };
 
   return (
